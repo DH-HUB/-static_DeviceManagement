@@ -1,0 +1,22 @@
+<form [formGroup]="formControl" class="d-flex flex-column" (submit)="onModification()">
+  <mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+
+    <input formControlName ="nom" matInput />
+
+    <mat-error *ngIf="formControl.get('nom')?.hasError('required')">
+      Le nom est<strong> obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>prenom</mat-label>
+     <input formControlName="prenom" matInput />
+       <mat-error *ngIf="formControl.get('prenom')?.hasError('required')">
+      Le prénom est<strong> obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Modifier</button>
+</form>
+

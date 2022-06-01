@@ -1,0 +1,26 @@
+<form [formGroup]="formControl" class="d-flex flex-column" (submit)="onConnexion()">
+  <mat-form-field appearance="fill">
+    <mat-label>Login</mat-label>
+
+    <input formControlName ="email" matInput />
+
+    <mat-error *ngIf="formControl.get('email')?.hasError('required')">
+      L'email est<strong> obligatoire</strong>
+    </mat-error>
+     <mat-error *ngIf="formControl.get('email')?.hasError('email')">
+      L'email est <strong>mal formé</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Mot de passe</mat-label>
+     <input type="password"
+     formControlName="motDePasse" matInput />
+       <mat-error *ngIf="formControl.get('motDePasse')?.hasError('required')">
+      Le mot de passe est<strong> obligatoire</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Se connecter</button>
+</form>
+
